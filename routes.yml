@@ -1,0 +1,5 @@
+### FRONT OFFICE ###
+/:
+  controller: MainController
+  action: Home
+
