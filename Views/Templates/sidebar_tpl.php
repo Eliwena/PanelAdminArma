@@ -12,10 +12,10 @@
             </li>
             <span>LIFE</span>
             <li>
-                <a href="/"><i class="icon fas fa-users-cog"></i>   Joueur</a>
+                <a href="/players"><i class="icon fas fa-users-cog"></i>   Joueur</a>
             </li>
             <li>
-                <a href="/"><i class="icon fas fa-car"></i>   Vehicules</a>
+                <a href="/vehicles"><i class="icon fas fa-car"></i>   Vehicules</a>
             </li>
             <li>
                 <a href="/"><i class="icon fas fa-users"></i>   Groupes</a>
@@ -30,9 +30,6 @@
                 <a href="/"><i class="icon fas fa-industry"></i>   Entreprise</a>
             </li>
             <span>ADMIN</span>
-            <li>
-                <a href="/"><i class="icon fas fa-gamepad"></i>   Metrics</a>
-            </li>
             <li>
                 <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="icon fas fa-list"></i>   Logs</a>
                 <ul class="collapse list-unstyled" id="pageSubmenu1">

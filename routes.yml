@@ -1,5 +1,45 @@
-### FRONT OFFICE ###
+### HOME ###
 /:
   controller: MainController
   action: Home
 
+
+### PLAYER ###
+/players:
+  controller: PlayersController
+  action: index
+
+/player/edit:
+  controller: PlayersController
+  action: edit
+
+/player/edit/name:
+  controller: PlayersController
+  action: editName
+
+/player/edit/license:
+  controller: PlayersController
+  action: editLicense
+
+/player/edit/cash:
+  controller: PlayersController
+  action: editCash
+
+/player/edit/bankacc:
+  controller: PlayersController
+  action: editBankacc
+
+/player/delete/vehicle:
+  controller: PlayersController
+  action: deleteVehicle
+
+
+### VEHICLES ###
+
+/vehicles:
+  controller: VehiclesController
+  action: index
+
+/vehicle/edit:
+  controller: VehiclesController
+  action: edit
