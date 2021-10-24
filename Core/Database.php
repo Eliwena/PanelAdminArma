@@ -17,7 +17,7 @@ class Database
     public function __construct($class = null)
     {
         try {
-            $this->pdo = new \PDO(DBDRIVER . ":dbname=" . DBNAME . ";host=" . DBHOST, DBUSER, DBPWD);
+            $this->pdo = new \PDO(DBDRIVER . ":dbname=" . DBNAME . ";host=" . DBHOST, DBUSER);
             $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             $this->pdo->setAttribute(\PDO::ATTR_EMULATE_PREPARES, false);
         } catch (Exception $e) {
@@ -123,10 +123,10 @@ class Database
 
         $columnForUpdate = [];
 
-       if (is_null($this->getId())) {
+       if (is_null($this->getUid())) {
             //INSERT
             unset($columns[0]);
-            unset($data["id"]);
+            unset($data["uid"]);
             $query = $this->pdo->prepare("INSERT INTO " . $this->table . " (
                                             " . implode(",", $columns) . "
                                             ) OVERRIDING SYSTEM VALUE VALUES (
@@ -140,18 +140,25 @@ class Database
                 }
             }
 
-            $sql = "UPDATE " . $this->table . " SET " . implode(",", $columnForUpdate) . " WHERE id=" . $this->getId();
+            $sql = "UPDATE " . $this->table . " SET " . implode(",", $columnForUpdate) . " WHERE uid=" . $this->getUid();
             $query = $this->pdo->prepare($sql);
             foreach ($data as $key => $value) {
                 if (!is_null($value)) {
                     $query->bindValue(":$key", $value);
                 }
-
             }
            $query->execute();
         }
     }
 
-
+    /**
+     * @param $id
+     * Function to "delete" an item, we set the isDeleted column to 1
+     */
+    public function delete($id)
+    {
+        $query = $this->pdo->prepare("DELETE FROM " . $this->table . " WHERE id=" . $id);
+        $query->execute();
+    }
 
 }

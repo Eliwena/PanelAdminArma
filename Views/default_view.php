@@ -3,32 +3,29 @@
 <div class="row top_tiles">
     <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="tile-stats">
-            <div class="icon"><i class="fa fa-users"></i></div>
-            <div class="count">players</div>
-            <h3>players</h3>
-            <p>totalPlayers</p>
+            <div class="count"><?php echo $countPlayers; ?> <i class="fa fa-users"></i></div>
+            <h3>Joueurs</h3>
+            <p>Nombre de joueurs  </p>
+
         </div>
     </div>
     <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="tile-stats">
-            <div class="icon"><i class="fa fa-user"></i></div>
-            <div class="count">newestPlayer </div>
+            <div class="count"> <i class="fa fa-user"></i></div>
             <h3>latestPlayer</h3>
             <p>latestPlayerDesc</p>
         </div>
     </div>
     <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="tile-stats">
-            <div class="icon"><i class="fa fa-car"></i></div>
-            <div class="count">veh_count</div>
-            <h3>totalVehicles</h3>
-            <p>totalVehiclesDesc</p>
+            <div class="count"><?php echo $countVehicles; ?> <i class="fa fa-car"></i></div>
+            <h3>Véhicules</h3>
+            <p>Total de véhicules </p>
         </div>
     </div>
     <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="tile-stats">
-            <div class="icon"><i class="fa fa-home"></i></div>
-            <div class="count"> house_count </div>
+            <div class="count"> house_count <i class="fa fa-home"></i> </div>
             <h3>totalHouses</h3>
             <p>totalHousesDesc</p>
         </div>
