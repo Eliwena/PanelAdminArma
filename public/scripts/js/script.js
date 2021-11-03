@@ -82,7 +82,7 @@ $(document).on('focusout', '#cash', function (e) {
 
 $(document).on('focusout', '#bankacc', function (e) {
     $.ajax({
-        url: "/player/edit/bank",
+        url: "/player/edit/bankacc",
         type: "POST",
         cache: false,
         data: {

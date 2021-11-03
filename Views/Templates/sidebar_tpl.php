@@ -30,6 +30,7 @@
                 <a href="/"><i class="icon fas fa-industry"></i>   Entreprise</a>
             </li>
             <span>ADMIN</span>
+                <!--   todo ajouter  note   -->
             <li>
                 <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="icon fas fa-list"></i>   Logs</a>
                 <ul class="collapse list-unstyled" id="pageSubmenu1">
