@@ -8,12 +8,10 @@ $date = $player['insert_time']
         <div class="card">
             <div class="card-body">
                 <div class="d-flex flex-column align-items-center text-center">
-
                     <div class="mt-3">
                         <h4>
                         <span id="player_uid"><?php echo $player['uid']; ?></span>
                         <?php
-
                         if ($player['adminlevel'] == 1) {
                             echo "<i style='color:  #9b59b6  ;' class='form-label fas fa-bolt'></i>";
                         } else if ($player['adminlevel'] == 2) {
@@ -27,9 +25,7 @@ $date = $player['insert_time']
                         }
                         ?>
                         </h4>
-
                         <input id="player" type="text" class="input-name" placeholder="" value="<?= $player['name']; ?>">
-
                         <p class="text-secondary mb-1">Arrivé : <?php echo date('d-m-Y', strtotime($date)); ?></p>
                         <p class="text-secondary mb-1">Tel : <?php echo $player['phone_number']; ?></p>
                         <p class="text-secondary mb-1">Steam ID : <?php echo $player['pid']; ?></p>
@@ -185,8 +181,6 @@ $date = $player['insert_time']
                                    href="#pills-stock" role="tab" aria-controls="pills-stock"
                                    aria-selected="false">Stock</a>
                         </ul>
-
-
                         <div class="tab-content " id="pills-tabContent">
                             <div class="tab-pane fade show list-house active" id="pills-house" role="tabpanel"
                                  aria-labelledby="pills-house-tab">
@@ -243,7 +237,5 @@ $date = $player['insert_time']
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
