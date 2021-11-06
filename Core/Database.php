@@ -6,8 +6,8 @@ namespace App\Core;
 class Database
 {
 
-	private $pdo;
-	private $table;
+    private $pdo;
+    private $table;
 
     /**
      * Database constructor.
@@ -28,14 +28,6 @@ class Database
         $this->table = ($class !== null ? $class : end($classExploded));
     }
 
-	/**
-	 * checkPgsql
-	 * @return void
-	 * Fonction permettant de reconnaitre si les extensions pgsql sont bien installé sur l'environnement
-	 */
-	public function checkPgsql() {
-		return extension_loaded('pgsql') ? 'yes':'no';
-	}
 
     public function getParentFields()
     {
@@ -73,7 +65,7 @@ class Database
                 if($key[0] !== "!") {
                     $query->bindValue(":".$key, $value);
                 } else {
-                    $query->bindValue(":".ltrim($key, $key[0]), $value);
+                    $query->bindValue(":" . ltrim($key, $key[0]), $value);
                 }
             }
         }
@@ -83,12 +75,9 @@ class Database
         return $query->fetchAll();
     }
 
-        /**
-
+    /**
      * @return array
-
      * Function to return de foreign key, used to save values in tables that contains foreign keys
-
      */
 
     public function get_foreignKeys()
@@ -110,7 +99,7 @@ class Database
             get_class_vars(get_class())
         );
 
-        
+
         $data = array_filter($data, function($value, $key) {
             //var_dump($key);
             if (!in_array($key, $this->get_foreignKeys())) {
@@ -123,17 +112,7 @@ class Database
 
         $columnForUpdate = [];
 
-       if (is_null($this->getUid())) {
-            //INSERT
-            unset($columns[0]);
-            unset($data["uid"]);
-            $query = $this->pdo->prepare("INSERT INTO " . $this->table . " (
-                                            " . implode(",", $columns) . "
-                                            ) OVERRIDING SYSTEM VALUE VALUES (
-                                            :" . implode(",:", $columns) . "
-                                            )");
-            $query->execute($data);
-       } else {
+        if ($this->getUid() > 0) {
             foreach ($data as $key => $value) {
                 if (!is_null($value)) {
                     $columnForUpdate[] = $key . "=:" . $key;
@@ -147,7 +126,19 @@ class Database
                     $query->bindValue(":$key", $value);
                 }
             }
-           $query->execute();
+            $query->execute();
+        } else {
+            //INSERT
+            unset($columns[0]);
+            unset($data["uid"]);
+            var_dump($columns);
+            var_dump($values);
+            $query = $this->pdo->prepare("INSERT INTO " . $this->table . " (
+                                            " . implode(",", $columns) . "
+                                            )  VALUES (
+                                            :" . implode(",:", $columns) . "
+                                            )");
+            $query->execute($data);
         }
     }
 
@@ -155,7 +146,8 @@ class Database
      * @param $id
      * Function to "delete" an item, we set the isDeleted column to 1
      */
-    public function delete($id)
+    public
+    function delete($id)
     {
         $query = $this->pdo->prepare("DELETE FROM " . $this->table . " WHERE id=" . $id);
         $query->execute();

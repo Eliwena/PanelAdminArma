@@ -8,11 +8,11 @@
             </button>
             <div class="dropdown right">
                 <button class="btn btn-secondary dropdown-toggles" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   Name user
+                   <?php echo $_SESSION['name'];?>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Deco</a>
-                    <a class="dropdown-item" href="#">Gestion</a>
+                    <a href="/logout" class="dropdown-item" href="#">Log-out</a>
+                    <a class="dropdown-item" href="#">Gestion<i style="color:red" class="fas fa-wrench"></i></a>
                 </div>
             </div>
 

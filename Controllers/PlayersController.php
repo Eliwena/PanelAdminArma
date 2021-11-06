@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Core\View;
+use App\Repository\Cw_UserRepository;
 use App\Repository\PlayersRepository;
 use App\Models\Players;
 class PlayersController
@@ -10,11 +11,11 @@ class PlayersController
 
     public function indexAction()
     {
-
         $players = playersRepository::getAllPlayers();
 
         $view = new View("players", "front");
         $view->assign('players', $players);
+
     }
 
     public function editAction()

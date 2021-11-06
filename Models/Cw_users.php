@@ -8,7 +8,7 @@ use App\Core\Helpers;
 
 class Cw_users extends Database
 {
-    protected $id;
+    protected $uid;
     protected $name;
     protected $email;
     protected $password;
@@ -29,17 +29,17 @@ class Cw_users extends Database
     /**
      * @return mixed
      */
-    public function getId()
+    public function getUid()
     {
-        return $this->id;
+        return $this->uid;
     }
 
     /**
-     * @param mixed $id
+     * @param mixed $uid
      */
-    public function setId($id)
+    public function setUid($uid)
     {
-        $this->id = $id;
+        $this->uid = $uid;
     }
 
     /**

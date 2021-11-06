@@ -1,10 +1,29 @@
 ### HOME ###
+
 /:
   controller: MainController
-  action: Home
+  action: home
 
+/login:
+  controller: MainController
+  action: login
+
+/logout:
+  controller: MainController
+  action: logout
+
+### USER ###
+
+/users:
+  controller: CwUserController
+  action: index
+
+/user/new:
+  controller: CwUserController
+  action: new
 
 ### PLAYER ###
+
 /players:
   controller: PlayersController
   action: index
