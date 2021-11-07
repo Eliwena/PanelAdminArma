@@ -145,4 +145,26 @@ class PlayersController
             echo $_POST['vehicle'];
         }
     }
+
+
+    public function editCopLevelAction(){
+
+        if(isset($_POST['coplevel'])){
+
+            PlayersRepository::setCoplevelPlayer($_POST['coplevel'],$_POST['player']);
+
+            echo $_POST['coplevel'];
+        }
+    }
+
+
+    public function editMedicLevelAction(){
+
+        if(isset($_POST['mediclevel'])){
+
+            PlayersRepository::setMediclevelPlayer($_POST['mediclevel'],$_POST['player']);
+
+            echo $_POST['mediclevel'];
+        }
+    }
 }

@@ -101,7 +101,6 @@ $(document).on('focusout', '#bankacc', function (e) {
 /**
  * Gestion nom d'un joueur
  */
-
 $(document).on('focusout', '#player', function (e) {
     $.ajax({
         url: "/player/edit/name",
@@ -128,6 +127,69 @@ $(document).on('focusout', '#player', function (e) {
     });
 });
 
+/**
+ * Gestion cop level
+ */
+
+$(document).on('change', '#coplevel', function (e) {
+    console.log($('#coplevel').prop('selected', true).val());
+    $.ajax({
+        url: "/player/edit/coplevel",
+        type: "POST",
+        cache: false,
+        data: {
+            coplevel: $('#coplevel').prop('selected', true).val(),
+            player: $("#player_uid").text(),
+        },
+        success: function (data) {
+            console.log(data)
+            $('#coplevel').css({
+                "border-color": "#198754 ",
+                "box-shadow": "0 0 5px #198754 ",
+                "border-width" : "1px",
+            })
+            setTimeout(function () {
+                $('#coplevel').css({
+                    "border-color": "#6c757d",
+                    "box-shadow": "none",
+                    "border-width" : "1px"
+                })
+            }, 2000);
+        }
+    });
+});
+
+/**
+ * Gestion medic level
+ */
+
+$(document).on('change', '#mediclevel', function (e) {
+    console.log($('#coplevel').prop('selected', true).val());
+    $.ajax({
+        url: "/player/edit/mediclevel",
+        type: "POST",
+        cache: false,
+        data: {
+            mediclevel: $('#mediclevel').prop('selected', true).val(),
+            player: $("#player_uid").text(),
+        },
+        success: function (data) {
+            console.log(data)
+            $('#mediclevel').css({
+                "border-color": "#198754 ",
+                "box-shadow": "0 0 5px #198754 ",
+                "border-width" : "1px",
+            })
+            setTimeout(function () {
+                $('#mediclevel').css({
+                    "border-color": "#6c757d",
+                    "box-shadow": "none",
+                    "border-width" : "1px"
+                })
+            }, 2000);
+        }
+    });
+});
 /**
  * Supprimer un vehicule a partir du profil player
  */

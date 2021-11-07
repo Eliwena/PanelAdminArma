@@ -94,4 +94,18 @@ class PlayersRepository extends Players
         return $results;
     }
 
+    public static function setCoplevelPlayer($coplevel, $uid){
+        $player = new Players();
+        $player->setUid($uid);
+        $player->setCoplevel($coplevel);
+        $player->save();
+    }
+
+    public static function setMediclevelPlayer($mediclevel, $uid){
+        $player = new Players();
+        $player->setUid($uid);
+        $player->setMediclevel($mediclevel);
+        $player->save();
+    }
+
 }

@@ -52,7 +52,13 @@
   controller: PlayersController
   action: deleteVehicle
 
+/player/edit/coplevel:
+  controller: PlayersController
+  action: editCopLevel
 
+/player/edit/mediclevel:
+  controller: PlayersController
+  action: editMedicLevel
 ### VEHICLES ###
 
 /vehicles:
