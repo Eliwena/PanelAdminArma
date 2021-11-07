@@ -35,7 +35,7 @@ class PlayersController
     public function editNameAction(){
         if(isset($_POST['name'])) {
 
-            PlayersRepository::setNamePlayer($_POST['name'],$_POST['player']);
+            PlayersRepository::setNamePlayer(htmlspecialchars($_POST['name']),htmlspecialchars($_POST['player']));
 
             echo $_POST['name'];
 
@@ -46,7 +46,7 @@ class PlayersController
     {
         if(isset($_POST['license'])) {
 
-            $class = explode(' ', $_POST['class']);
+            $class = explode(' ', htmlspecialchars($_POST['class']));
             foreach ($class as $Oneclass) {
                 if ($Oneclass == 'active') {
                     $active = 1;
@@ -63,7 +63,7 @@ class PlayersController
             }
 
 
-            $player = playersRepository::getPlayer($_POST['player']);
+            $player = playersRepository::getPlayer(htmlspecialchars($_POST['player']));
 
             if (isset($med)) {
                 $license = $player[0]['med_licenses'];
@@ -103,15 +103,15 @@ class PlayersController
 
 
             if (isset($med)) {
-            PlayersRepository::setLicensePlayer('med' ,$licensesConcat, $_POST['player']);
+            PlayersRepository::setLicensePlayer('med' ,$licensesConcat, htmlspecialchars($_POST['player']));
             }
 
             if (isset($cop)) {
-                PlayersRepository::setLicensePlayer('cop', $licensesConcat, $_POST['player']);
+                PlayersRepository::setLicensePlayer('cop', $licensesConcat, htmlspecialchars($_POST['player']));
             }
 
             if (isset($civ)) {
-                PlayersRepository::setLicensePlayer('civ', $licensesConcat, $_POST['player']);
+                PlayersRepository::setLicensePlayer('civ', $licensesConcat,htmlspecialchars($_POST['player']));
             }
 
             echo $_POST['license'];
@@ -122,7 +122,7 @@ class PlayersController
 
         if(isset($_POST['cash'])){
 
-            PlayersRepository::setCashPlayer($_POST['cash'],$_POST['player']);
+            PlayersRepository::setCashPlayer(htmlspecialchars($_POST['cash']),htmlspecialchars($_POST['player']));
 
             echo $_POST['cash'];
         }
@@ -132,7 +132,7 @@ class PlayersController
 
         if(isset($_POST['bankacc'])){
 
-            PlayersRepository::setBankaccPlayer($_POST['bankacc'],$_POST['player']);
+            PlayersRepository::setBankaccPlayer(htmlspecialchars($_POST['bankacc']),htmlspecialchars($_POST['player']));
 
             echo $_POST['bankacc'];
         }
@@ -141,7 +141,7 @@ class PlayersController
 
     public function deleteVehicleAction(){
         if(isset($_POST['vehicle'])){
-            PlayersRepository::deleteVehiclePlayer($_POST['vehicle']);
+            PlayersRepository::deleteVehiclePlayer(htmlspecialchars($_POST['vehicle']));
             echo $_POST['vehicle'];
         }
     }
@@ -151,7 +151,7 @@ class PlayersController
 
         if(isset($_POST['coplevel'])){
 
-            PlayersRepository::setCoplevelPlayer($_POST['coplevel'],$_POST['player']);
+            PlayersRepository::setCoplevelPlayer(htmlspecialchars($_POST['coplevel']),htmlspecialchars($_POST['player']));
 
             echo $_POST['coplevel'];
         }
@@ -162,7 +162,7 @@ class PlayersController
 
         if(isset($_POST['mediclevel'])){
 
-            PlayersRepository::setMediclevelPlayer($_POST['mediclevel'],$_POST['player']);
+            PlayersRepository::setMediclevelPlayer(htmlspecialchars($_POST['mediclevel']),htmlspecialchars($_POST['player']));
 
             echo $_POST['mediclevel'];
         }

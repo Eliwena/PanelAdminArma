@@ -17,9 +17,10 @@ class Database
     public function __construct($class = null)
     {
         try {
-            $this->pdo = new \PDO(DBDRIVER . ":dbname=" . DBNAME . ";host=" . DBHOST, DBUSER);
+            $this->pdo = new \PDO(DBDRIVER . ":dbname=" . DBNAME . ";charact=".DBCHARAC.";host=" . DBHOST , DBUSER);
             $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             $this->pdo->setAttribute(\PDO::ATTR_EMULATE_PREPARES, false);
+            $this->pdo->exec("SET NAMES UTF8");
         } catch (Exception $e) {
             die ("Erreur SQL " . $e->getMessage());
         }
