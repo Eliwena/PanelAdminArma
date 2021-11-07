@@ -1,10 +1,29 @@
 ### HOME ###
+
 /:
   controller: MainController
-  action: Home
+  action: home
 
+/login:
+  controller: MainController
+  action: login
+
+/logout:
+  controller: MainController
+  action: logout
+
+### USER ###
+
+/users:
+  controller: CwUserController
+  action: index
+
+/user/new:
+  controller: CwUserController
+  action: new
 
 ### PLAYER ###
+
 /players:
   controller: PlayersController
   action: index
@@ -33,7 +52,13 @@
   controller: PlayersController
   action: deleteVehicle
 
+/player/edit/coplevel:
+  controller: PlayersController
+  action: editCopLevel
 
+/player/edit/mediclevel:
+  controller: PlayersController
+  action: editMedicLevel
 ### VEHICLES ###
 
 /vehicles:

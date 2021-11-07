@@ -18,21 +18,31 @@
                 <a href="/vehicles"><i class="icon fas fa-car"></i>   Vehicules</a>
             </li>
             <li>
-                <a href="/"><i class="icon fas fa-users"></i>   Groupes</a>
+                <a href="#"><i class="icon fas fa-users"></i>   Groupes <i style="color:red" class="fas fa-wrench"></i></a>
             </li>
             <li>
-                <a href="/"><i class="icon fas fa-home"></i>   Maisons</a>
+                <a href="#"><i class="icon fas fa-home"></i>   Maisons <i style="color:red" class="fas fa-wrench"></i></a>
             </li>
             <li>
-                <a href="/"><i class="icon fas fa-warehouse"></i>   Stockage</a>
+                <a href="#"><i class="icon fas fa-warehouse"></i>   Stockage <i style="color:red" class="fas fa-wrench"></i></a>
             </li>
             <li>
-                <a href="/"><i class="icon fas fa-industry"></i>   Entreprise</a>
+                <a href="#"><i class="icon fas fa-industry"></i>   Entreprise <i style="color:red" class="fas fa-wrench"></i></a>
             </li>
             <span>ADMIN</span>
-                <!--   todo ajouter  note   -->
             <li>
-                <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="icon fas fa-list"></i>   Logs</a>
+                <a href="#pageSubmenu0" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="icon fas fa-comment-alt"></i>   Note <i style="color:red" class="fas fa-wrench"></i></a>
+                <ul class="collapse list-unstyled" id="pageSubmenu0">
+                    <li>
+                        <a href="#">Notes</a>
+                    </li>
+                    <li>
+                        <a href="#">Mes notes</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="icon fas fa-list"></i>   Logs <i style="color:red" class="fas fa-wrench"></i></a>
                 <ul class="collapse list-unstyled" id="pageSubmenu1">
                     <li>
                         <a href="#">Logs Mort</a>
@@ -46,7 +56,7 @@
                 </ul>
             </li>
             <li>
-                <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="icon fas fa-user-tag"></i>   Rôle</a>
+                <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="icon fas fa-user-tag"></i>   Rôle <i style="color:red" class="fas fa-wrench"></i></a>
                 <ul class="collapse list-unstyled" id="pageSubmenu2">
                     <li>
                         <a href="#">Liste Rôle</a>
@@ -60,10 +70,10 @@
                 <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="icon fas fa-user-astronaut"></i>   Utilisateurs</a>
                 <ul class="collapse list-unstyled" id="pageSubmenu3">
                     <li>
-                        <a href="#">Liste</a>
+                        <a href="/users">Liste</a>
                     </li>
                     <li>
-                        <a href="#">Ajout Utilisateur</a>
+                        <a href="/user/new">Ajout Utilisateur</a>
                     </li>
                 </ul>
             </li>

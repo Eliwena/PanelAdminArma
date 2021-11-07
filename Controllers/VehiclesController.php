@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Core\View;
+use App\Repository\Cw_UserRepository;
 use App\Repository\VehiclesRepository;
 use App\Repository\PlayersRepository;
 
@@ -10,7 +11,6 @@ class VehiclesController
 {
     public function indexAction()
     {
-
         $vehicles = vehiclesRepository::getAllVehicles();
         $players = PlayersRepository::getAllPlayers();
         $view = new View("vehicles", "front");

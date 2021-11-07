@@ -29,6 +29,27 @@ $date = $player['insert_time']
                         <p class="text-secondary mb-1">Arrivé : <?php echo date('d-m-Y', strtotime($date)); ?></p>
                         <p class="text-secondary mb-1">Tel : <?php echo $player['phone_number']; ?></p>
                         <p class="text-secondary mb-1">Steam ID : <?php echo $player['pid']; ?></p>
+                        <div class="form-row">
+                            <div class="col">
+                                <select id='coplevel' class="form-select form-control" aria-label="Cop level">
+                                    <option selected>Cop level : <?php echo $player['coplevel'];?></option>
+                                    <?php for($i = 0 ; $i <= 14; $i++){?>
+                                            <?php if($i != $player['coplevel']){?>
+                                        <option name="coplevel" value="<?php echo $i?>">Cop Level : <?php echo $i; ?></option>
+                                    <?php }} ?>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select id="mediclevel" class="form-select form-control" aria-label="Medic level">
+                                    <option  selected>Medic level : <?php echo $player['mediclevel']?></option>
+                                    <?php for($j = 0 ; $j <= 13; $j++){?>
+                                        <?php if($j != $player['mediclevel']){?>
+                                            <option name=" mediclevel" value="<?php echo $j?>">Medic Level : <?php echo $j; ?></option>
+                                        <?php }} ?>
+                                </select>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>

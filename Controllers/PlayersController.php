@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Core\View;
+use App\Repository\Cw_UserRepository;
 use App\Repository\PlayersRepository;
 use App\Models\Players;
 class PlayersController
@@ -10,11 +11,11 @@ class PlayersController
 
     public function indexAction()
     {
-
         $players = playersRepository::getAllPlayers();
 
         $view = new View("players", "front");
         $view->assign('players', $players);
+
     }
 
     public function editAction()
@@ -142,6 +143,28 @@ class PlayersController
         if(isset($_POST['vehicle'])){
             PlayersRepository::deleteVehiclePlayer($_POST['vehicle']);
             echo $_POST['vehicle'];
+        }
+    }
+
+
+    public function editCopLevelAction(){
+
+        if(isset($_POST['coplevel'])){
+
+            PlayersRepository::setCoplevelPlayer($_POST['coplevel'],$_POST['player']);
+
+            echo $_POST['coplevel'];
+        }
+    }
+
+
+    public function editMedicLevelAction(){
+
+        if(isset($_POST['mediclevel'])){
+
+            PlayersRepository::setMediclevelPlayer($_POST['mediclevel'],$_POST['player']);
+
+            echo $_POST['mediclevel'];
         }
     }
 }
