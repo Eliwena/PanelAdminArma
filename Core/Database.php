@@ -132,8 +132,8 @@ class Database
             //INSERT
             unset($columns[0]);
             unset($data["uid"]);
-            var_dump($columns);
-            var_dump($values);
+            //var_dump($columns);
+            //var_dump($values);
             $query = $this->pdo->prepare("INSERT INTO " . $this->table . " (
                                             " . implode(",", $columns) . "
                                             )  VALUES (

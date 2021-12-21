@@ -3,6 +3,7 @@
 namespace App\Core;
 
 use App\Models\Cw_users;
+use App\Repository\Cw_PermissionsRepository;
 
 class Security {
 
@@ -54,11 +55,12 @@ class Security {
             ["uid",'name', "primaryGroup","password"],
             ["name" => $name]
         );
-        var_dump($password, $result[0]['password']);
             if(count($result)) {
                 if (password_verify($password, $result[0]['password'])) {
                     $_SESSION["userId"] = $result[0]["uid"];
                     $_SESSION['name'] = $result[0]['name'];
+                    $_SESSION['role'] = Cw_PermissionsRepository::getPermissionsById($result[0]['primaryGroup'])[0]['group_name'];
+                    $_SESSION['superRole'] = Cw_PermissionsRepository::getPermissionsById($result[0]['primaryGroup'])[0]['is_superUser'];
                     // $_SESSION['alert']['success'] = ["titre" => "Succès", "message" => "Votre connexion a été renouvelé !"];
                     header('location: /');
                     session_write_close();

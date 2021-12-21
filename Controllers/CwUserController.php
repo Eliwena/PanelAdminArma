@@ -22,7 +22,7 @@ class CwUserController {
 
     public function newAction(){
         $permissions = Cw_PermissionsRepository::getAllPermissions();
-
+        $param = 0;
         if(isset($_POST['save'])){
             $name = htmlspecialchars($_POST['name']);
             $password = htmlspecialchars($_POST['password']);
@@ -30,10 +30,11 @@ class CwUserController {
             $role = htmlspecialchars($_POST['role']);
 
             Cw_UserRepository::saveUser($name,$email,$password,$role);
-
+            $param = 1;
         }
         $view = new View("newuser","front");
         $view->assign('permissions',$permissions);
+        $view->assign('param',$param);
     }
 
 }

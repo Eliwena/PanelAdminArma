@@ -3,20 +3,23 @@
 namespace App;
 
 use App\Core\View;
-use App\Repository\Cw_UserRepository;
 use App\Repository\VehiclesRepository;
 use App\Repository\PlayersRepository;
 
 class VehiclesController
 {
+
     public function indexAction()
     {
-        $vehicles = vehiclesRepository::getAllVehicles();
-        $players = PlayersRepository::getAllPlayers();
-        $view = new View("vehicles", "front");
-        $view->assign('vehicles', $vehicles);
-        $view->assign('players', $players);
-
+        if($_SESSION['role'] === 'Helpeurs'){
+            $view = new View('fraude','front');
+        }else {
+            $vehicles = VehiclesRepository::getAllVehicles();
+            $players = PlayersRepository::getAllPlayers();
+            $view = new View("vehicles", "front");
+            $view->assign('vehicles', $vehicles);
+            $view->assign('players', $players);
+        }
     }
 
     public function editAction()
