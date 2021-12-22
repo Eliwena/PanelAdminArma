@@ -25,7 +25,7 @@ $date = $player['insert_time']
                         }
                         ?>
                         </h4>
-                        <?php if($_SESSION['role'] === 'Helpeur'){?>
+                        <?php if($_SESSION['role'] === 'Helpeur' || $_SESSION['role'] === 'Modérateur' ){?>
                         <p class="text-secondary mb-1"><?php echo $player['name']; ?></p>
                         <?php } else { ?>
                         <input id="player" type="text" class="input-name" placeholder="" value="<?= $player['name']; ?>">
@@ -184,7 +184,7 @@ $date = $player['insert_time']
                             <div class="form-row">
                                 <div class="col">
                                     <small>CASH $</small>
-                                    <?php if($_SESSION['role'] !== 'Helpeur'){?>
+                                    <?php if($_SESSION['role'] !== 'Helpeur' && $_SESSION['role'] !== 'Modérateur'){?>
                                     <input id="cash" type="number" class="form-control input_player"
                                            placeholder="" value="<?php echo $player['cash']; ?>">
                                     <?php } else { ?>
@@ -197,7 +197,7 @@ $date = $player['insert_time']
                                 </div>
                                 <div class="col">
                                     <small>BANK $</small>
-                                    <?php if($_SESSION['role'] !== 'Helpeur'){?>
+                                    <?php if($_SESSION['role'] !== 'Helpeur' && $_SESSION['role'] !== 'Modérateur'){?>
                                         <input id="bankacc" type="number" class="form-control input_player"
                                                placeholder="" value="<?php echo $player['bankacc']; ?>">
                                     <?php } else { ?>
@@ -213,7 +213,7 @@ $date = $player['insert_time']
                     </div>
                 </div>
             </div>
-            <?php if($_SESSION['role'] !== 'Helpeur'){?>
+            <?php if($_SESSION['role'] !== 'Helpeur' && $_SESSION['role'] !== 'Modérateur'){?>
             <div class="col-sm-6 mb-3">
                 <div class="card h-100 ">
                     <div class="card-body">
