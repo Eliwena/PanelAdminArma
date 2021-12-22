@@ -25,13 +25,21 @@ $date = $player['insert_time']
                         }
                         ?>
                         </h4>
+                        <?php if($_SESSION['role'] === 'Helpeur'){?>
+                        <p class="text-secondary mb-1"><?php echo $player['name']; ?></p>
+                        <?php } else { ?>
                         <input id="player" type="text" class="input-name" placeholder="" value="<?= $player['name']; ?>">
+                        <?php } ?>
                         <p class="text-secondary mb-1">Arrivé : <?php echo date('d-m-Y', strtotime($date)); ?></p>
                         <p class="text-secondary mb-1">Tel : <?php echo $player['phone_number']; ?></p>
                         <p class="text-secondary mb-1">Steam ID : <?php echo $player['pid']; ?></p>
                         <div class="form-row">
                             <div class="col">
-                                <select id='coplevel' class="form-select form-control" aria-label="Cop level">
+                                <?php if($_SESSION['role'] === 'Helpeur'){?>
+                                <select id='coplevel' class="form-select form-control" aria-label="Cop level" disabled>
+                                <?php } else { ?>
+                                <select id='coplevel' class="form-select form-control" aria-label="Cop level" >
+                                <?php } ?>
                                     <option selected>Cop level : <?php echo $player['coplevel'];?></option>
                                     <?php for($i = 0 ; $i <= 14; $i++){?>
                                             <?php if($i != $player['coplevel']){?>
@@ -40,7 +48,11 @@ $date = $player['insert_time']
                                 </select>
                             </div>
                             <div class="col">
+                                <?php if($_SESSION['role'] === 'Helpeur'){?>
+                                <select id="mediclevel" class="form-select form-control" aria-label="Medic level" disabled>
+                                <?php } else { ?>
                                 <select id="mediclevel" class="form-select form-control" aria-label="Medic level">
+                                <?php } ?>
                                     <option  selected>Medic level : <?php echo $player['mediclevel']?></option>
                                     <?php for($j = 0 ; $j <= 13; $j++){?>
                                         <?php if($j != $player['mediclevel']){?>
@@ -54,6 +66,7 @@ $date = $player['insert_time']
                 </div>
             </div>
         </div>
+        <?php if($_SESSION['role'] !== 'Helpeur'){?>
         <div class="card mt-3 list-vehicles">
             <div class="card h-100">
                 <div class="card-body">
@@ -82,6 +95,7 @@ $date = $player['insert_time']
                 </div>
             </div>
         </div>
+        <?php } ?>
     </div>
     <div class="col-md-8">
         <div class="card mb-3">
@@ -116,7 +130,7 @@ $date = $player['insert_time']
                             if (count($license) > 1) {
                                 ?>
                                 <button id="<?php echo $license[0]; ?>"
-                                        class="btn license  <?php if ($license[1] == '1') { ?> active <?php } ?> civ "><?php echo $license[0]; ?></button>
+                                        class="btn <?php if($_SESSION['role'] !== 'Helpeur'){?>license <?php } ?> <?php if ($license[1] == '1') { ?> active <?php } ?> civ "><?php echo $license[0]; ?></button>
                             <?php } else { ?> <span>N'as pas la license</span><?php }
                         }
                         ?>
@@ -132,7 +146,7 @@ $date = $player['insert_time']
                             if (count($license) > 1) {
                                 ?>
                                 <button id="<?php echo $license[0]; ?>"
-                                        class=" btn license  <?php if ($license[1] == '1') { ?> active <?php } ?> cop "><?php echo $license[0]; ?></button>
+                                        class=" btn <?php if($_SESSION['role'] !== 'Helpeur'){?>license <?php } ?>  <?php if ($license[1] == '1') { ?> active <?php } ?> cop "><?php echo $license[0]; ?></button>
                             <?php } else { ?> <span>N'as pas la license</span><?php }
                         }
                         ?>
@@ -148,7 +162,7 @@ $date = $player['insert_time']
                             if (count($license) > 1) {
                                 ?>
                                 <button id="<?php echo $license[0]; ?>"
-                                        class=" btn license <?php if ($license[1] == '1') { ?> active <?php } ?> med "><?php echo $license[0]; ?></button>
+                                        class=" btn <?php if($_SESSION['role'] !== 'Helpeur'){?>license <?php } ?> <?php if ($license[1] == '1') { ?> active <?php } ?> med "><?php echo $license[0]; ?></button>
                             <?php } else { ?> <span>N'as pas la license</span><?php }
                         }
                         ?>
@@ -170,16 +184,26 @@ $date = $player['insert_time']
                             <div class="form-row">
                                 <div class="col">
                                     <small>CASH $</small>
+                                    <?php if($_SESSION['role'] !== 'Helpeur'){?>
                                     <input id="cash" type="number" class="form-control input_player"
                                            placeholder="" value="<?php echo $player['cash']; ?>">
+                                    <?php } else { ?>
+                                    <input id="cash" type="number" class="form-control input_player"
+                                           placeholder="" value="<?php echo $player['cash']; ?>" disabled>
+                                    <?php } ?>
                                     <span id="cash_valide" class="valide">
                                                 Changement enregistré !
                                             </span>
                                 </div>
                                 <div class="col">
                                     <small>BANK $</small>
-                                    <input id="bankacc" type="number" class="form-control input_player"
-                                           placeholder="" value="<?php echo $player['bankacc']; ?>">
+                                    <?php if($_SESSION['role'] !== 'Helpeur'){?>
+                                        <input id="bankacc" type="number" class="form-control input_player"
+                                               placeholder="" value="<?php echo $player['bankacc']; ?>">
+                                    <?php } else { ?>
+                                        <input id="bankacc" type="number" class="form-control input_player"
+                                               placeholder="" value="<?php echo $player['bankacc']; ?>" disabled>
+                                    <?php } ?>
                                     <span id="bankacc_valide" class="valide">
                                                 Changement enregistré !
                                             </span>
@@ -189,6 +213,7 @@ $date = $player['insert_time']
                     </div>
                 </div>
             </div>
+            <?php if($_SESSION['role'] !== 'Helpeur'){?>
             <div class="col-sm-6 mb-3">
                 <div class="card h-100 ">
                     <div class="card-body">
@@ -221,7 +246,7 @@ $date = $player['insert_time']
                                             <td style=' text-align:left; font-size:15px' class="text-secondary mb-1 table-text"><?php echo $house['garage']; ?></td>
                                             <td style=' text-align:left; font-size:15px' class="text-secondary mb-1 table-text"><?php echo $house['owned']; ?></td>
                                             <td>
-                                                <a href="#" id="<?php echo $vehicle['id'] ?>" class="delete_vehicles_player button4"
+                                                <a href="#" id="<?php echo $house['id'] ?>" class="delete_vehicles_player button4"
                                                    style="background-color:#f14e4e">Delete</a>
                                             </td>
                                         </tr>
@@ -258,5 +283,6 @@ $date = $player['insert_time']
                     </div>
                 </div>
             </div>
+            <?php }?>
         </div>
     </div>
