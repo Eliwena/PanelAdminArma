@@ -24,13 +24,16 @@ class VehiclesController
 
     public function editAction()
     {
-        $id = $_POST['id'];
-        $vehicle = vehiclesRepository::getVehicle($id);
-        $player = vehiclesRepository::getVehiculeHasPlayer($id);
-        $view = new View("vehicle", "front");
-        $view->assign('vehicle', $vehicle[0]);
-        $view->assign('player', $player);
-
+        if($_SESSION['role'] === 'Helpeurs'){
+            $view = new View('fraude','front');
+        }else {
+            $id = $_POST['id'];
+            $vehicle = vehiclesRepository::getVehicle($id);
+            $player = vehiclesRepository::getVehiculeHasPlayer($id);
+            $view = new View("vehicle", "front");
+            $view->assign('vehicle', $vehicle[0]);
+            $view->assign('player', $player);
+        }
     }
 
 }
