@@ -17,10 +17,9 @@
         <div id="formFooter">
             <h6 class="underlineHover" href="#">Liste des rôles</h6>
             <?php foreach ($permissions as $permission){?>
-             <?php echo $permission['id']?> => <?php echo  $permission['group_name']?>  <br>
+                <?php echo $permission['id']?> => <?php echo  $permission['group_name']?>
             <?php } ?>
         </div>
-
     </div>
 </div>
 

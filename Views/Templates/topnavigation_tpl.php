@@ -8,7 +8,8 @@
             </button>
             <div class="dropdown right">
                 <button class="btn btn-secondary dropdown-toggles" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   <?php echo $_SESSION['name'];?>
+                   <?php echo $_SESSION['name'] . ' ['. $_SESSION['role'] .'] ';?>
+
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a href="/logout" class="dropdown-item" href="#">Log-out</a>

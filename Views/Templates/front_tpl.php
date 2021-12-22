@@ -19,11 +19,13 @@
 <?php include('sidebar_tpl.php'); ?>
 <?php include('topnavigation_tpl.php'); ?>
 
+<div class="content">
         <?php include $this->view ?>
+</div>
 
 
             <!-- footer content -->
-            <footer>
+            <footer id="">
                 <div >
                     Version 1
                 </div>
