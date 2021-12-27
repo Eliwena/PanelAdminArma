@@ -66,7 +66,6 @@ $date = $player['insert_time']
                 </div>
             </div>
         </div>
-        <?php if($_SESSION['role'] !== 'Helpeur'){?>
         <div class="card mt-3 list-vehicles">
             <div class="card h-100">
                 <div class="card-body">
@@ -85,8 +84,10 @@ $date = $player['insert_time']
                                     class="text-secondary mb-1 table-text"><?php echo $vehicle['classname']; ?></td>
                                 <td>
                                     <a href="#" onclick="editVehicleAction(this)" data-id="<?= $vehicle["id"] ?>" class="button4" style="background-color:#4e9af1">More</a>
+                                    <?php if($_SESSION['role'] !== 'Helpeur'){?>
                                     <a href="#" id="<?php echo $vehicle['id'] ?>" class="delete_vehicles_player button4"
                                        style="background-color:#f14e4e">Delete</a>
+                                    <?php } ?>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -95,7 +96,6 @@ $date = $player['insert_time']
                 </div>
             </div>
         </div>
-        <?php } ?>
     </div>
     <div class="col-md-8">
         <div class="card mb-3">
