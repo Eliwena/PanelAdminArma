@@ -184,7 +184,7 @@ $date = $player['insert_time']
                             <div class="form-row">
                                 <div class="col">
                                     <small>CASH $</small>
-                                    <?php if($_SESSION['role'] !== 'Helpeur' && $_SESSION['role'] !== 'Modérateur'){?>
+                                    <?php if($_SESSION['role'] !== 'Helpeur'){?>
                                     <input id="cash" type="number" class="form-control input_player"
                                            placeholder="" value="<?php echo $player['cash']; ?>">
                                     <?php } else { ?>
@@ -197,7 +197,7 @@ $date = $player['insert_time']
                                 </div>
                                 <div class="col">
                                     <small>BANK $</small>
-                                    <?php if($_SESSION['role'] !== 'Helpeur' && $_SESSION['role'] !== 'Modérateur'){?>
+                                    <?php if($_SESSION['role'] !== 'Helpeur'){?>
                                         <input id="bankacc" type="number" class="form-control input_player"
                                                placeholder="" value="<?php echo $player['bankacc']; ?>">
                                     <?php } else { ?>
