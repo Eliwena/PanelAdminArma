@@ -6,6 +6,7 @@
             <th>Pid</th>
             <th>Prénom / Nom</th>
             <th>Cash</th>
+            <th>Bank</th>
             <th>Option</th>
         </tr>
     </thead>
@@ -16,6 +17,7 @@
            <td class="table-text"><?php echo $player['pid']?></td>
            <td class="table-text"><?php echo $player['name']; ?></td>
            <td class="table-text"><?php echo $player['cash']?></td>
+           <td class="table-text"><?php echo $player['bankacc']?></td>
            <td>
                <?php if($_SESSION['role'] == 'Helpeur'){?>
                <a href="#" onclick="editPlayerAction(this)" data-id="<?= $player["uid"] ?>" class="button4" style="background-color:#4e9af1">View</a>

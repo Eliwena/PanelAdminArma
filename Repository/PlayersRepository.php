@@ -12,7 +12,7 @@ class PlayersRepository extends Players
 
     public static function getAllPlayers(){
         $players = new Players();
-        $results = $players->query(['uid','pid','name','cash']);
+        $results = $players->query(['uid','pid','name','cash','bankacc']);
         return $results;
     }
 
