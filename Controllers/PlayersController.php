@@ -153,6 +153,13 @@ class PlayersController
         }
     }
 
+    public function deleteContainerAction(){
+        if(isset($_POST['container'])){
+            PlayersRepository::deleteContainerPlayer(htmlspecialchars($_POST['container']));
+            echo $_POST['container'];
+        }
+    }
+
     public function editCopLevelAction(){
 
         if(isset($_POST['coplevel'])){

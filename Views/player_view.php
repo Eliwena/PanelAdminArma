@@ -270,8 +270,8 @@ $date = $player['insert_time']
                                             <td style=' text-align:left; font-size:15px' class="text-secondary mb-1 table-text"><?php echo $container['classname']; ?></td>
                                             <td style=' text-align:left; font-size:15px' class="text-secondary mb-1 table-text"><?php echo $container['pos']; ?></td>
                                             <td>
-                                                <a href="#" onclick="editVehicleAction(this)" data-id="" class="button4" style="background-color:#4e9af1">More</a>
-                                                <a href="#" id="" class="delete_vehicles_player button4"
+                                                <a href="#" onclick="" data-id="" class="button4" style="background-color:#4e9af1">More</a>
+                                                <a href="#" id="<?php echo $container['id']; ?>" class="delete_container_player button4"
                                                    style="background-color:#f14e4e">Delete</a>
                                             </td>
                                         </tr>

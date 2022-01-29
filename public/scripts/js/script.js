@@ -233,6 +233,27 @@ $(document).on('click', '.delete_house_player', function (e) {
 });
 
 /**
+ * Supprimer un stockage a partir du profil player
+ */
+$(document).on('click', '.delete_container_player', function (e) {
+    $.ajax({
+        url: "/player/delete/container",
+        type: "POST",
+        cache: false,
+        data: {
+            container: $(this).attr('id'),
+            player: $("#player_uid").text(),
+        },
+        success: function (data) {
+            console.log(data);
+            $('#row-' + data).hide(1000, function () {
+                $('#row-' + data).remove();
+            });
+        }
+    });
+});
+
+/**
  * Fonction pour modifier le player en fonction de son id, redirige sur la page player/edit --> Redirection
  * @param e
  */
