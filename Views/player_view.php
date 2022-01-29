@@ -41,7 +41,7 @@ $date = $player['insert_time']
                                 <select id='coplevel' class="form-select form-control" aria-label="Cop level" >
                                 <?php } ?>
                                     <option selected>Cop level : <?php echo $player['coplevel'];?></option>
-                                    <?php for($i = 0 ; $i <= 14; $i++){?>
+                                    <?php for($i = 0 ; $i <= 15; $i++){?>
                                             <?php if($i != $player['coplevel']){?>
                                         <option name="coplevel" value="<?php echo $i?>">Cop Level : <?php echo $i; ?></option>
                                     <?php }} ?>
