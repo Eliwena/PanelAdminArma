@@ -118,4 +118,40 @@ class PlayersRepository extends Players
         $player->save();
     }
 
+    public static function deleteAllVehiculeHasPlayer($uid)
+    {
+        $vehicules = self::getPlayerHasVehicles($uid);
+        foreach ($vehicules as $vehicule ){
+            $vehi = new Vehicles();
+            $vehi->delete($vehicule['id']);
+        }
+    }
+
+    public static function deleteAllHouseHasPlayer($uid)
+    {
+        $houses = self::getPlayerHasHouses($uid);
+        foreach ($houses as $house ){
+            $hou = new Vehicles();
+            $hou->delete($house['id']);
+        }
+    }
+
+    public static function deleteAllContainerHasPlayer($uid)
+    {
+        $containers = self::getPlayerHasContainers($uid);
+        foreach ($containers as $container ){
+            $cont = new Vehicles();
+            $cont->delete($container['id']);
+        }
+    }
+
+    public static function deletePlayer($uid)
+    {
+        self::deleteAllVehiculeHasPlayer($uid);
+        self::deleteAllHouseHasPlayer($uid);
+        self::deleteAllContainerHasPlayer($uid);
+        $player = new Players();
+        $player->delete($uid);
+    }
+
 }

@@ -39,6 +39,10 @@
   controller: PlayersController
   action: edit
 
+/player/delete:
+  controller: PlayersController
+  action: delete
+
 /player/edit/name:
   controller: PlayersController
   action: editName
