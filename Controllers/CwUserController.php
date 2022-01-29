@@ -47,12 +47,16 @@ class CwUserController {
 
     public function editAction()
     {
-        $uid = $_POST['uid'];
-        $user = Cw_UserRepository::getUser($uid);
-        $roles = Cw_PermissionsRepository::getAllPermissions();
-        $view = new View("user", "front");
-        $view->assign('user', $user[0]);
-        $view->assign('roles', $roles);
+        if($_SESSION['superRole'] !== 1){
+            $view = new View('fraude','front');
+        }else {
+            $uid = $_POST['uid'];
+            $user = Cw_UserRepository::getUser($uid);
+            $roles = Cw_PermissionsRepository::getAllPermissions();
+            $view = new View("user", "front");
+            $view->assign('user', $user[0]);
+            $view->assign('roles', $roles);
+        }
     }
 
     public function editRoleAction(){

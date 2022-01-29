@@ -6,8 +6,7 @@
                     <label>Id : </label>
                     <span id="user_uid"><?php echo $user['uid']; ?></span>
                 </h4>
-                <label>Nom</label>
-                <input id="player" type="text" class="input-name" placeholder="" value="<?= $user['name']; ?>">
+                <p class="text-secondary mb-1">Nom : <?php echo $user['name']; ?></p>
                 <p class="text-secondary mb-1">Email : <?php echo $user['email']; ?></p>
 
                     <select id='role' class="form-select form-control" aria-label="Role" >
