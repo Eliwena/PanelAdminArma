@@ -146,6 +146,12 @@ class PlayersController
         }
     }
 
+    public function deleteHouseAction(){
+        if(isset($_POST['house'])){
+            PlayersRepository::deleteHousePlayer(htmlspecialchars($_POST['house']));
+            echo $_POST['house'];
+        }
+    }
 
     public function editCopLevelAction(){
 

@@ -211,6 +211,26 @@ $(document).on('click', '.delete_vehicles_player', function (e) {
     });
 });
 
+/**
+ * Supprimer une maison a partir du profil player
+ */
+$(document).on('click', '.delete_house_player', function (e) {
+    $.ajax({
+        url: "/player/delete/house",
+        type: "POST",
+        cache: false,
+        data: {
+            house: $(this).attr('id'),
+            player: $("#player_uid").text(),
+        },
+        success: function (data) {
+            console.log(data);
+            $('#row-' + data).hide(1000, function () {
+                $('#row-' + data).remove();
+            });
+        }
+    });
+});
 
 /**
  * Fonction pour modifier le player en fonction de son id, redirige sur la page player/edit --> Redirection

@@ -52,6 +52,10 @@
   controller: PlayersController
   action: deleteVehicle
 
+/player/delete/house:
+  controller: PlayersController
+  action: deleteHouse
+
 /player/edit/coplevel:
   controller: PlayersController
   action: editCopLevel
