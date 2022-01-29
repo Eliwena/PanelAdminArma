@@ -211,6 +211,47 @@ $(document).on('click', '.delete_vehicles_player', function (e) {
     });
 });
 
+/**
+ * Supprimer une maison a partir du profil player
+ */
+$(document).on('click', '.delete_house_player', function (e) {
+    $.ajax({
+        url: "/player/delete/house",
+        type: "POST",
+        cache: false,
+        data: {
+            house: $(this).attr('id'),
+            player: $("#player_uid").text(),
+        },
+        success: function (data) {
+            console.log(data);
+            $('#row-' + data).hide(1000, function () {
+                $('#row-' + data).remove();
+            });
+        }
+    });
+});
+
+/**
+ * Supprimer un stockage a partir du profil player
+ */
+$(document).on('click', '.delete_container_player', function (e) {
+    $.ajax({
+        url: "/player/delete/container",
+        type: "POST",
+        cache: false,
+        data: {
+            container: $(this).attr('id'),
+            player: $("#player_uid").text(),
+        },
+        success: function (data) {
+            console.log(data);
+            $('#row-' + data).hide(1000, function () {
+                $('#row-' + data).remove();
+            });
+        }
+    });
+});
 
 /**
  * Fonction pour modifier le player en fonction de son id, redirige sur la page player/edit --> Redirection
@@ -232,3 +273,12 @@ function editVehicleAction(e) {
     $.redirect('/vehicle/edit', {'id': id});
 }
 
+/**
+ * Fonction pour modifier un vehicule en fonction de son id, redirige sur la page vehicle/edit --> Redirection
+ * @param e
+ */
+function editContainerAction(e) {
+    let id = $(e).attr("data-id");
+    console.log(id);
+   // $.redirect('/container/edit', {'id': id});
+}

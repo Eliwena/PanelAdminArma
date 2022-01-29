@@ -78,6 +78,16 @@ class PlayersRepository extends Players
         $vehicles->delete($vehicle);
     }
 
+    public static function deleteHousePlayer($house){
+        $houses = new Houses();
+        $houses->delete($house);
+    }
+
+    public static function deleteContainerPlayer($container){
+        $containers = new Containers();
+        $containers->delete($container);
+    }
+
     public static function getPlayerHasHouses($uid){
         $player = new Players();
         $results_pid = $player->query(['*'],['uid'=>$uid],'','');
