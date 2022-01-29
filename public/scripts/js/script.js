@@ -273,3 +273,12 @@ function editVehicleAction(e) {
     $.redirect('/vehicle/edit', {'id': id});
 }
 
+/**
+ * Fonction pour modifier un vehicule en fonction de son id, redirige sur la page vehicle/edit --> Redirection
+ * @param e
+ */
+function editContainerAction(e) {
+    let id = $(e).attr("data-id");
+    console.log(id);
+   // $.redirect('/container/edit', {'id': id});
+}
