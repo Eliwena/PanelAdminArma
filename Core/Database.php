@@ -150,7 +150,11 @@ class Database
     public
     function delete($id)
     {
-        $query = $this->pdo->prepare("DELETE FROM " . $this->table . " WHERE id=" . $id);
+        if($this->table === "Players" || $this->table === "Cw_users") {
+            $query = $this->pdo->prepare("DELETE FROM " . $this->table . " WHERE uid=" . $id);
+        }else{
+            $query = $this->pdo->prepare("DELETE FROM " . $this->table . " WHERE id=" . $id);
+        }
         $query->execute();
     }
 

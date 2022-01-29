@@ -257,3 +257,29 @@ function editContainerAction(e) {
     console.log(id);
 // $.redirect('/container/edit', {'id': id});
 }
+
+
+/**
+ * Supprimer un player
+ */
+$(document).on('click', '.delete_player', function (e) {
+    if (confirm("Ete vous sur de vouloir supprimer ce joueur ?")) {
+        $.ajax({
+            url: "/player/delete",
+            type: "POST",
+            cache: false,
+            data: {
+                uid: $(this).attr('id'),
+            },
+            success: function (data) {
+                console.log(data);
+                $('#row-' + data).hide(1000, function () {
+                    $('#row-' + data).remove();
+                });
+            }
+        });
+    } else {
+
+    }
+
+});

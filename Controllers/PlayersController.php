@@ -32,13 +32,18 @@ class PlayersController
         $view->assign('containers', $containers);
     }
 
+    public function deleteAction()
+    {
+        if(isset($_POST['uid'])){
+            PlayersRepository::deletePlayer(htmlspecialchars($_POST['uid']));
+            echo $_POST['uid'];
+        }
+    }
+
     public function editNameAction(){
         if(isset($_POST['name'])) {
-
             PlayersRepository::setNamePlayer(htmlspecialchars($_POST['name']),htmlspecialchars($_POST['player']));
-
             echo $_POST['name'];
-
         }
     }
 
@@ -62,17 +67,14 @@ class PlayersController
                 }
             }
 
-
             $player = playersRepository::getPlayer(htmlspecialchars($_POST['player']));
 
             if (isset($med)) {
                 $license = $player[0]['med_licenses'];
             }
-
             if (isset($cop)) {
                 $license = $player[0]['cop_licenses'];
             }
-
             if (isset($civ)) {
                 $license = $player[0]['civ_licenses'];
             }
@@ -105,35 +107,26 @@ class PlayersController
             if (isset($med)) {
             PlayersRepository::setLicensePlayer('med' ,$licensesConcat, htmlspecialchars($_POST['player']));
             }
-
             if (isset($cop)) {
                 PlayersRepository::setLicensePlayer('cop', $licensesConcat, htmlspecialchars($_POST['player']));
             }
-
             if (isset($civ)) {
                 PlayersRepository::setLicensePlayer('civ', $licensesConcat,htmlspecialchars($_POST['player']));
             }
-
             echo $_POST['license'];
         }
     }
 
     public function editCashAction(){
-
         if(isset($_POST['cash'])){
-
             PlayersRepository::setCashPlayer(htmlspecialchars($_POST['cash']),htmlspecialchars($_POST['player']));
-
             echo $_POST['cash'];
         }
     }
 
     public function editBankaccAction(){
-
         if(isset($_POST['bankacc'])){
-
             PlayersRepository::setBankaccPlayer(htmlspecialchars($_POST['bankacc']),htmlspecialchars($_POST['player']));
-
             echo $_POST['bankacc'];
         }
     }
@@ -161,22 +154,16 @@ class PlayersController
     }
 
     public function editCopLevelAction(){
-
         if(isset($_POST['coplevel'])){
-
             PlayersRepository::setCoplevelPlayer(htmlspecialchars($_POST['coplevel']),htmlspecialchars($_POST['player']));
-
             echo $_POST['coplevel'];
         }
     }
 
 
     public function editMedicLevelAction(){
-
         if(isset($_POST['mediclevel'])){
-
             PlayersRepository::setMediclevelPlayer(htmlspecialchars($_POST['mediclevel']),htmlspecialchars($_POST['player']));
-
             echo $_POST['mediclevel'];
         }
     }
