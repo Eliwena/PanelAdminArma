@@ -61,7 +61,6 @@ $date = $player['insert_time']
                                 </select>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

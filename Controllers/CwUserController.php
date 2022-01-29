@@ -45,4 +45,20 @@ class CwUserController {
         }
     }
 
+    public function editAction()
+    {
+        $uid = $_POST['uid'];
+        $user = Cw_UserRepository::getUser($uid);
+        $roles = Cw_PermissionsRepository::getAllPermissions();
+        $view = new View("user", "front");
+        $view->assign('user', $user[0]);
+        $view->assign('roles', $roles);
+    }
+
+    public function editRoleAction(){
+        if(isset($_POST['role'])){
+            Cw_UserRepository::setRoleUser(htmlspecialchars($_POST['role']),htmlspecialchars($_POST['user']));
+            echo $_POST['role'];
+        }
+    }
 }

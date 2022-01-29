@@ -23,5 +23,16 @@ class Cw_UserRepository extends Cw_users
         $user->save();
     }
 
+    public static function getUser($uid){
+        $user = new Cw_users();
+        $results = $user->query(['*'],['uid'=>$uid],'','');
+        return $results;
+    }
 
+    public static function setRoleUser($role, $uid){
+        $user = new Cw_users();
+        $user->setUid($uid);
+        $user->setPrimaryGroup($role);
+        $user->save();
+    }
 }

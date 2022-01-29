@@ -50,6 +50,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <!-- Script JS -->
     <script src=<?php App\Core\View::getAssets("script.js")?>></script>
+    <script src=<?php App\Core\View::getAssets("player.js")?>></script>
+    <script src=<?php App\Core\View::getAssets("user.js")?>></script>
+
     <!--    Datatable-->
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
 
